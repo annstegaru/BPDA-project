@@ -1,14 +1,11 @@
-// For Node 18+ with built-in fetch, no import needed.
-// If on older versions, uncomment the following line after installing node-fetch:
 import fetch from 'node-fetch';
 
 //-----------------------------------------------------
 // 1) CONFIGURATION
 //-----------------------------------------------------
-const ETHERSCAN_API_KEY = 'IA43NK5U6CJ792SSSTA8ABGE99QB99QFKU'; // Your Etherscan API key
-const ALCHEMY_SEPOLIA_URL = 'https://eth-sepolia.g.alchemy.com/v2/DAFnOmNKDsUZv3tqw0KqLeLZO60jJ2rj'; // Your Alchemy Sepolia endpoint
+const ETHERSCAN_API_KEY = 'IA43NK5U6CJ792SSSTA8ABGE99QB99QFKU'; //c Etherscan API key
+const ALCHEMY_SEPOLIA_URL = 'https://eth-sepolia.g.alchemy.com/v2/DAFnOmNKDsUZv3tqw0KqLeLZO60jJ2rj'; // Alchemy Sepolia endpoint
 const CONTRACT_ADDRESS = '0x5f5a404A5edabcDD80DB05E8e54A78c9EBF000C2'; // The contract to query
-// Example: Transfer MethodID = 0xa9059cbb 
 const METHOD_ID = process.argv[2] || '0xe11013dd'; // Pass the MethodID as an argument when running the script
 
 
@@ -213,8 +210,6 @@ async function getCurrentGasPriceWei() {
     console.log(`Recommended Gas Limit (with 30% buffer): ${recommendedGasLimit}\n`);
   
     // 7) Show cost estimates using *live* gas price
-    //    If you want to simulate 'fast' or 'low', you can add a factor
-    //    e.g. fast = currentGasPriceWei * 1.2, slow = currentGasPriceWei * 0.8, etc.
   
     console.log(`Cost estimates *using average gas used* with live gasPrice`);
     const costETHAvg = computeCostInEth(avgGasUsed, currentGasPriceWei);
